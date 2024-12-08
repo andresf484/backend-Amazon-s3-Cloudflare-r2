@@ -15,10 +15,10 @@ import fs from 'fs';
 import { AMAZON_S3 } from '../config/configuration.js';
 
 const client = new S3Client({
-    region: AMAZON_S3.AMAZON_S2_BUCKET_REGION,
+    region: AMAZON_S3.AMAZON_S3_BUCKET_REGION,
     credentials: {
-        accessKeyId: AMAZON_S3.AMAZON_S2_PUBLIC_ACCESS_KEY,
-        secretAccessKey: AMAZON_S3.AMAZON_S2_SECRET_ACCESS_KEY
+        accessKeyId: AMAZON_S3.AMAZON_S3_PUBLIC_ACCESS_KEY,
+        secretAccessKey: AMAZON_S3.AMAZON_S3_SECRET_ACCESS_KEY
     }
 });
 
@@ -38,7 +38,7 @@ export async function uploadFile(folder_name, file) {
         const stream = file.data;
 
         const uploadParams = {
-            Bucket: AMAZON_S3.AMAZON_S2_BUCKET_NAME,
+            Bucket: AMAZON_S3.AMAZON_S3_BUCKET_NAME,
             Key: key_string,
             //Key: file.name,
             Body: stream
@@ -62,7 +62,7 @@ export async function getFiles() {
     try {
 
         const params = {
-            Bucket: AMAZON_S3.AMAZON_S2_BUCKET_NAME
+            Bucket: AMAZON_S3.AMAZON_S3_BUCKET_NAME
         };
 
         const command = new ListObjectsCommand(params);
@@ -84,7 +84,7 @@ export async function getFile(fileName) {
     try {
 
         const params = {
-            Bucket: AMAZON_S3.AMAZON_S2_BUCKET_NAME,
+            Bucket: AMAZON_S3.AMAZON_S3_BUCKET_NAME,
             Key: fileName
         };
 
@@ -107,7 +107,7 @@ export async function downloadFile(fileName) {
     try {
 
         const params = {
-            Bucket: AMAZON_S3.AMAZON_S2_BUCKET_NAME,
+            Bucket: AMAZON_S3.AMAZON_S3_BUCKET_NAME,
             Key: fileName
         };
 
@@ -131,7 +131,7 @@ export async function getFileURL(fileName) {
     try {
 
         const params = {
-            Bucket: AMAZON_S3.AMAZON_S2_BUCKET_NAME,
+            Bucket: AMAZON_S3.AMAZON_S3_BUCKET_NAME,
             Key: fileName
         };
 
@@ -154,7 +154,7 @@ export async function deleteFile(fileName) {
     try {
 
         const params = {
-            Bucket: AMAZON_S3.AMAZON_S2_BUCKET_NAME,
+            Bucket: AMAZON_S3.AMAZON_S3_BUCKET_NAME,
             Key: fileName
         };
 
