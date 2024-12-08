@@ -1,0 +1,14 @@
+# Nodejs modules
+node_modules
+package-lock.json
+
+# Enviroment variables
+.env
+
+# Carpeta pública
+public/*
+
+# Carpeta temporal
+temp/*
+
+mynotes.txt
